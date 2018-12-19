@@ -14,7 +14,6 @@ import timeit
 
 largeTestSet = True
 dset = '/home/jthalloran/classificationData/ijcnn1.tr'
-# testset = '/home/jthalloran/classificationData/ijcnn1.t'
 # dset = '/home/jthalloran/classificationData/rcv1_train.binary'
 # dset = '/home/jthalloran/classificationData/news20.binary'
 start_time = timeit.default_timer()
@@ -58,38 +57,3 @@ print "%f seconds to train Logistic Regression with L2 regularization" % (elapse
 h = np.asarray(np.sign(X.dot(w.value))).reshape(-1)
 train_error = float(sum(h != np.sign(Y))) / float(n)
 print "%f train error" % (1.0 - train_error)
-
-# # evaluate testset
-# start_time = timeit.default_timer()
-# Y, X0 = svm_read_problem(testset)
-# n =  len(X0)
-# d = max([max(x) for x in X0 if x])
-# print "%d instances, %d features" % (n, d)
-
-# if not largeTestSet:
-#     X = np.zeros(shape=(n,d))
-#     for i,x in enumerate(X0):
-#         for j in x:
-#             X[i][j-1] = x[j]
-#     Y = np.array(Y)
-#     del X0[:]
-
-#     h = np.asarray(np.sign(X.dot(w.value))).reshape(-1)
-#     test_error = float(sum(h != np.sign(Y))) / float(n)
-#     print "%f test error" % (1.0 - test_error)
-
-# else:
-#     ########### for larger dataset
-#     z = w.value
-#     Yhat = np.zeros(n)
-#     for i,x in enumerate(X0):
-#         Yhat[i] = sum([x[j]*z[j-1] for j in x])
-#     Y = np.array(Y)
-#     del X0[:]
-
-#     test_error = float(sum(np.sign(Yhat) != np.sign(Y))) / float(n)
-#     print "%f test error" % (1.0 - test_error)
-
-# elapsed = timeit.default_timer() - start_time
-
-# print "%f seconds to test classifier" % (elapsed)
