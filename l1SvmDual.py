@@ -67,7 +67,7 @@ print z.shape
 # training error
 h = np.asarray(np.sign(X.dot(z))).reshape(-1)
 train_error = float(sum(h != np.sign(Y))) / float(n)
-print "%f train error" % (1.0 - train_error)
+print "%f train accuracy" % (1.0 - train_error)
 
 f = open('l1SvmDual_learnedWeights.txt', 'w')
 for i in v.value:

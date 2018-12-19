@@ -53,4 +53,4 @@ print "%f seconds to train L1-SVM with L2 regularization" % (elapsed)
 # training error
 h = np.asarray(np.sign(X.dot(w.value))).reshape(-1)
 train_error = float(sum(h != np.sign(Y))) / float(n)
-print "%f train error" % (1.0 - train_error)
+print "%f train accuracy" % (1.0 - train_error)
